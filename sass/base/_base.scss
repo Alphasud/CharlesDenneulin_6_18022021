@@ -1,0 +1,53 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; //pour definir la valeur de 1rem : on veut 1rem = 10px, soit 10px / 16px = 62.5 (16px est la taille par default sur les navigateur)
+}
+
+body {
+    box-sizing: border-box;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+    outline: none;
+    
+}
+
+ /* unvisited link */
+a:link {
+  color: currentColor;
+}
+
+/* visited link */
+a:visited {
+  color: currentColor;
+}
+
+/* mouse over link */
+a:hover {
+  color: currentColor;
+}
+
+/* selected link */
+a:active {
+  color: currentColor;
+} 
+
+::selection {
+    background-color: $text-color-primary;
+    color: $color-black;
+}
+
+
+
+
+

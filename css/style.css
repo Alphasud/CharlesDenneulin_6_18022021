@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+  outline: none;
+}
+
+/* unvisited link */
+a:link {
+  color: currentColor;
+}
+
+/* visited link */
+a:visited {
+  color: currentColor;
+}
+
+/* mouse over link */
+a:hover {
+  color: currentColor;
+}
+
+/* selected link */
+a:active {
+  color: currentColor;
+}
+
+::selection {
+  background-color: #D3573C;
+  color: #000;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #000;
+  background-color: #FFF;
+}
+
+.button {
+  background-color: #901C1C;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  width: 10rem;
+  height: 3.5rem;
+  outline: none;
+  transition: color 0.1s ease;
+}
+.button:hover {
+  background-color: #D3573C;
+  color: #000;
+}
+.button:focus {
+  background-color: #D3573C;
+  color: #000;
+}
+
+/*# sourceMappingURL=style.css.map */

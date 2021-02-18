@@ -1,0 +1,22 @@
+{
+  "name": "charlesdenneulin_6_18022021",
+  "version": "1.0.0",
+  "description": "## Scénario :",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alphasud/CharlesDenneulin_6_18022021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alphasud/CharlesDenneulin_6_18022021/issues"
+  },
+  "homepage": "https://github.com/Alphasud/CharlesDenneulin_6_18022021#readme",
+  "devDependencies": {
+    "sass": "^1.32.7"
+  }
+}
