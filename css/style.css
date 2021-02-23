@@ -22,26 +22,27 @@ a {
   outline: none;
 }
 
-/* unvisited link */
+/*
+// unvisited link 
 a:link {
   color: currentColor;
 }
 
-/* visited link */
+// visited link
 a:visited {
   color: currentColor;
 }
 
-/* mouse over link */
+// mouse over link
 a:hover {
   color: currentColor;
 }
 
-/* selected link */
+// selected link 
 a:active {
   color: currentColor;
-}
-
+} 
+*/
 ::selection {
   background-color: #D3573C;
   color: #000;
@@ -56,14 +57,18 @@ body {
 }
 
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #901C1C;
   color: #FFF;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   width: 10rem;
-  height: 3.5rem;
+  height: 4.5rem;
   outline: none;
   transition: color 0.1s ease;
+  cursor: pointer;
 }
 .button:hover {
   background-color: #D3573C;
@@ -72,6 +77,48 @@ body {
 .button:focus {
   background-color: #D3573C;
   color: #000;
+}
+
+.top-link {
+  background-color: #FFF;
+  border: 1px solid #d4d4d4;
+  border-radius: 20px;
+  padding: 0.1rem;
+  color: #901C1C;
+}
+.top-link:hover {
+  background-color: #901C1C;
+  color: #FFF;
+  border: none;
+}
+.top-link:focus {
+  background-color: #901C1C;
+  color: #FFF;
+  border: none;
+}
+
+.dropdown {
+  width: 11rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #901C1C;
+  border-radius: 2.5px;
+  overflow: hidden;
+}
+.dropdown .button {
+  padding-left: 1rem;
+  text-align: left;
+  border-radius: 0;
+}
+.dropdown .button i {
+  margin-left: 1.5rem;
+}
+.dropdown .button:nth-child(2) {
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
+}
+.dropdown .button:nth-child(n+2) {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

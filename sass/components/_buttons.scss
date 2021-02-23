@@ -1,12 +1,16 @@
 .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: $background-color-primary;
     color: $color-white;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     width: 10rem;
-    height: 3.5rem;
+    height: 4.5rem;
     outline: none;
     transition: color .1s ease;
+    cursor: pointer;
     &:hover {
         background-color: $background-color-secondary;
         color: $color-black;
@@ -16,4 +20,22 @@
         color: $color-black;
     }
     
+}
+
+.top-link {
+    background-color: $color-white;
+    border: 1px solid darken($text-color-secondary-grey-light, 15%);
+    border-radius: 20px;
+    padding: .1rem;
+    color: $text-color-secondary;
+    &:hover {
+        background-color: $background-color-primary;
+        color: $color-white;
+        border: none;
+    }
+    &:focus {
+        background-color: $background-color-primary;
+        color: $color-white;
+        border: none;
+    }
 }

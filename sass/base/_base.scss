@@ -21,26 +21,27 @@ a {
     outline: none;
     
 }
-
- /* unvisited link */
+/*
+// unvisited link 
 a:link {
   color: currentColor;
 }
 
-/* visited link */
+// visited link
 a:visited {
   color: currentColor;
 }
 
-/* mouse over link */
+// mouse over link
 a:hover {
   color: currentColor;
 }
 
-/* selected link */
+// selected link 
 a:active {
   color: currentColor;
 } 
+*/
 
 ::selection {
     background-color: $text-color-primary;
