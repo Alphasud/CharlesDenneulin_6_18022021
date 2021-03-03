@@ -22,20 +22,4 @@
     
 }
 
-.top-link {
-    background-color: $color-white;
-    border: 1px solid darken($text-color-secondary-grey-light, 15%);
-    border-radius: 20px;
-    padding: .1rem;
-    color: $text-color-secondary;
-    &:hover {
-        background-color: $background-color-primary;
-        color: $color-white;
-        border: none;
-    }
-    &:focus {
-        background-color: $background-color-primary;
-        color: $color-white;
-        border: none;
-    }
-}
+

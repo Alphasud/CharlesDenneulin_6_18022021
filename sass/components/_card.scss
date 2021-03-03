@@ -1,0 +1,62 @@
+.card {
+    flex-basis: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2.5rem;
+
+    &__general-link {
+
+    }
+
+    &__image {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 100px;
+        object-fit: cover;
+    }
+
+    &__name {
+        font-size: 2.5rem;
+        color: $text-color-primary;
+    }
+
+    &__location {
+        color: $text-color-secondary;
+        font-weight: 400;
+    }
+
+    &__price {
+        color: $text-color-secondary-grey-dark;
+    }
+
+    &__tags {
+        background-color: $color-white;
+        border: 1px solid darken($text-color-secondary-grey-light, 15%);
+        border-radius: 20px;
+        padding:.1rem .3rem;
+        font-weight: 400;
+        color: $text-color-secondary;
+        margin-top : .25rem;
+            &:hover {
+                background-color: $background-color-primary;
+                color: $color-white;
+                border: 1px solid transparent;
+            }
+            &:focus {
+                background-color: $background-color-primary;
+                color: $color-white;
+                border: 1px solid transparent;
+            }
+            &:not(:last-child) {
+            margin-right: .2rem;
+            }
+    }
+
+    &__tags-container {
+        display: flex;
+    }
+
+    
+}

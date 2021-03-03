@@ -18,34 +18,16 @@ body {
 a {
     text-decoration: none;
     color: currentColor;
-    outline: none;
-    
+    outline: none; 
 }
-/*
-// unvisited link 
-a:link {
-  color: currentColor;
-}
-
-// visited link
-a:visited {
-  color: currentColor;
-}
-
-// mouse over link
-a:hover {
-  color: currentColor;
-}
-
-// selected link 
-a:active {
-  color: currentColor;
-} 
-*/
 
 ::selection {
     background-color: $text-color-primary;
     color: $color-black;
+}
+
+.wrapper {
+  margin: 2rem 5rem;
 }
 
 
