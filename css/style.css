@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 *,
 *::after,
 *::before {
@@ -32,7 +32,7 @@ a {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 300;
   line-height: 1.5;
   color: #000;
@@ -70,6 +70,9 @@ body {
   text-align: center;
   margin-top: 2.5rem;
 }
+.card__general-link {
+  display: contents;
+}
 .card__image {
   width: 15rem;
   height: 15rem;
@@ -78,6 +81,7 @@ body {
 }
 .card__name {
   font-size: 2.5rem;
+  font-weight: 400;
   color: #D3573C;
 }
 .card__location {
@@ -89,7 +93,7 @@ body {
 }
 .card__tags {
   background-color: #FFF;
-  border: 1px solid #d4d4d4;
+  border: 0.5px solid #d1d1d1;
   border-radius: 20px;
   padding: 0.1rem 0.3rem;
   font-weight: 400;
@@ -99,12 +103,12 @@ body {
 .card__tags:hover {
   background-color: #901C1C;
   color: #FFF;
-  border: 1px solid transparent;
+  border: 0.5px solid transparent;
 }
 .card__tags:focus {
   background-color: #901C1C;
   color: #FFF;
-  border: 1px solid transparent;
+  border: 0.5px solid transparent;
 }
 .card__tags:not(:last-child) {
   margin-right: 0.2rem;
@@ -148,7 +152,7 @@ body {
 }
 .header__nav__link {
   background-color: #FFF;
-  border: 1px solid #d4d4d4;
+  border: 0.5px solid #d1d1d1;
   border-radius: 20px;
   padding: 0.1rem;
   font-weight: 400;
@@ -157,12 +161,12 @@ body {
 .header__nav__link:hover {
   background-color: #901C1C;
   color: #FFF;
-  border: 1px solid transparent;
+  border: 0.5px solid transparent;
 }
 .header__nav__link:focus {
   background-color: #901C1C;
   color: #FFF;
-  border: 1px solid transparent;
+  border: 0.5px solid transparent;
 }
 .header__nav__link:not(:last-child) {
   margin-right: 1rem;

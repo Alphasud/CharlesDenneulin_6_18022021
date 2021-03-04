@@ -1,5 +1,3 @@
-
-
 export const getData = () => fetch('datas/FishEyeDataFR.json')
     .then(response => response.json())
     .catch(error => {
