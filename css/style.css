@@ -117,6 +117,19 @@ body {
   display: flex;
 }
 
+.photographer-page__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.photographer-page__header-left {
+  display: flex;
+}
+.photographer-page__header-left__info {
+  margin-right: 2rem;
+}
+
 .dropdown {
   width: 11rem;
   padding-left: 0.5rem;

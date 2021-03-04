@@ -1,0 +1,15 @@
+.photographer-page {
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__header-left {
+        display: flex;
+        &__info {
+            margin-right: 2rem;
+        }
+    }
+    
+}

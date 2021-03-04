@@ -60,16 +60,34 @@ class BuildPhotographerPage {
         this.type = 'photographer-page';
         this.createPhotographerPage = function (photographerID) {
             getData().then(data => {
-                console.log(photographerID);
                 const photographers = data.photographers;
-                console.log(photographers);
-
-                const item = photographers.find(item => item.id == photographerID);
-                console.log(item.name);
+                const photographerItem = photographers.find(photographerItem => photographerItem.id == photographerID); 
+                const tagsArray = photographerItem.tags.map(tags => {
+                    return `<a href="" class="card__tags">#${tags}</a>`
+                    }).join('');
                 
-                    
-                    
-                app.innerHTML = item.name;
+                const page = `
+                <section class='photographer-page__header'> 
+                
+                <div class='photographer-page__header-left'>
+                    <div class='photographer-page__header-left__info'>
+                        <h1 class='card__name'>${photographerItem.name}</h1>
+                        <p class='card__location'>${photographerItem.city}, ${photographerItem.country}</p>
+                        <p class="card__tagline">${photographerItem.tagline}</p>
+                        <div class="card__tags-container">${tagsArray}</div>
+                    </div>
+                    <div class='photographer-page__header-left__contact'>
+                        <button class='button'>Contactez-moi</button>
+                    </div>
+                </div>
+
+                <div class='photographer-page__header-right'>
+                    <img class="card__image" src="./images/PhotographersIDPhotos/${photographerItem.portrait}" alt="">
+                </div>
+
+                </section>`;
+                
+                app.innerHTML = page;
             })
         }
     }
