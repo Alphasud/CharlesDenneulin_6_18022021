@@ -61,18 +61,38 @@ class BuildHomepage {
                 for (let n = 0; n < navLinks.length; n++) {
                     navLinks[n].addEventListener('click', function (event) {
                         event.preventDefault();
-                        const navLink = navLinks[n].innerText.slice(1);
+                        const navLink = navLinks[n].innerText.slice(1).toLowerCase();
                         console.log(navLink);
-
+                        app.innerHTML = '';
                         
+                        const photographerCard = photographers.map(photographers => {
+                            const tags = photographers.tags;
+                            const tagsArray = tags.map(tags => {
+                                return `<a href="" class="card__tags">#${tags}</a>`
+                            }).join('');
 
-                       // const arrayOfTagsByPhotographer = photographers.map(element => {
-                         //   const tags = element.tags;
-                           // const tagsArray = tags.map(element => element);
-                            //return tagsArray;
-                       // });
-                        //console.log(arrayOfTagsByPhotographer);
+                            const ArrayOfTags = tags.map(element => element);
+                            console.log(ArrayOfTags);
+                            if (ArrayOfTags.includes(navLink)) {
+                                console.log('yes');
+                                return `
+                                <article class="card">
+                                    <a id="${photographers.id}" class="card__general-link" href="">
+                                        <img class="card__image" src="./images/PhotographersIDPhotos/${photographers.portrait}" alt="">
+                                        <h2 class="card__name">${photographers.name}</h2>
+                                    </a>
+                                    <p class="card__location">${photographers.city}, ${photographers.country}</p>
+                                    <p class="card__tagline">${photographers.tagline}</p>
+                                    <p class="card__price">${photographers.price}&euro;/jour</p>
+                                    <div class="card__tags-container">${tagsArray}</div>
+                                </article>`;
+                            } else {
+                                console.log('no');
+                                return ``;
+                            }
+                        }).join('');
 
+                        app.innerHTML = photographerCard;
                         
                     })
                 }
