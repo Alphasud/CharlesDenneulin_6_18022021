@@ -2,7 +2,7 @@
     &__header {
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
     }
     &__header-left {
@@ -11,5 +11,70 @@
             margin-right: 2rem;
         }
     }
+
+    &__media {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__medium {
+        width: 20rem;
+        height: 25rem;
+        padding: 1rem;
+        flex-basis: 25%;
+        color: $text-color-secondary;
+
+        &__image {
+        width: 20rem;
+        height: 20rem;
+        object-fit: cover;
+        }
+        &__video {
+        width: 35rem;
+        height: 20rem;
+        }
+
+        &__item {
+            width: 20rem;
+            display: flex;
+            justify-content: space-between;
+
+            &__info{
+                display: flex;
+                align-items: baseline;
+                justify-content: end;
+                
+                &__price {
+                    margin-right: 1rem;
+                }
+                &__likes {
+                    margin-right: .25rem;
+                }
+            }
+            
+        }
+
+        &__item__video {
+            width: 35rem;
+            display: flex;
+            justify-content: space-between;
+
+            &__info{
+                display: flex;
+                align-items: baseline;
+                justify-content: end;
+                
+                &__price {
+                    margin-right: 1rem;
+                }
+                &__likes {
+                    margin-right: .25rem;
+                }
+            }
+            
+        }
+    }
+
+    
     
 }

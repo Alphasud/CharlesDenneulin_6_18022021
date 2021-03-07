@@ -19,6 +19,16 @@
         background-color: $background-color-secondary;
         color: $color-black;
     }
+
+    &--like {
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-end;
+        align-items: baseline;
+        background-color: transparent;
+        color: $text-color-secondary;
+        border: none;
+    }
     
 }
 

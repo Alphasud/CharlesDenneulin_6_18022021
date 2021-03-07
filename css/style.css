@@ -61,6 +61,15 @@ body {
   background-color: #D3573C;
   color: #000;
 }
+.button--like {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  background-color: transparent;
+  color: #901C1C;
+  border: none;
+}
 
 .card {
   flex-basis: 33%;
@@ -120,7 +129,7 @@ body {
 .photographer-page__header {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .photographer-page__header-left {
@@ -128,6 +137,58 @@ body {
 }
 .photographer-page__header-left__info {
   margin-right: 2rem;
+}
+.photographer-page__media {
+  display: flex;
+  flex-wrap: wrap;
+}
+.photographer-page__medium {
+  width: 20rem;
+  height: 25rem;
+  padding: 1rem;
+  flex-basis: 25%;
+  color: #901C1C;
+}
+.photographer-page__medium__image {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+}
+.photographer-page__medium__video {
+  width: 35rem;
+  height: 20rem;
+}
+.photographer-page__medium__item {
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+}
+.photographer-page__medium__item__info {
+  display: flex;
+  align-items: baseline;
+  justify-content: end;
+}
+.photographer-page__medium__item__info__price {
+  margin-right: 1rem;
+}
+.photographer-page__medium__item__info__likes {
+  margin-right: 0.25rem;
+}
+.photographer-page__medium__item__video {
+  width: 35rem;
+  display: flex;
+  justify-content: space-between;
+}
+.photographer-page__medium__item__video__info {
+  display: flex;
+  align-items: baseline;
+  justify-content: end;
+}
+.photographer-page__medium__item__video__info__price {
+  margin-right: 1rem;
+}
+.photographer-page__medium__item__video__info__likes {
+  margin-right: 0.25rem;
 }
 
 .dropdown {
