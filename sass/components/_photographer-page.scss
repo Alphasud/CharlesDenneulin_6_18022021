@@ -74,6 +74,28 @@
             
         }
     }
+    &__static-counter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        right: 2rem;
+        bottom: 0rem;
+        padding: 1.5rem;
+        background-color: $background-color-secondary;
+        color: $color-black;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        width: 20rem;
+        height: 3.5rem;
+        font-size: 1.5rem;
+        &__like-counter {
+            p {margin-right: 0.5rem;}
+            display: flex;
+            align-items: baseline;
+        }
+
+    }
 
     
     
