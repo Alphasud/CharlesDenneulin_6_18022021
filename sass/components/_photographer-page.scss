@@ -11,31 +11,41 @@
             margin-right: 2rem;
         }
     }
-
+    label { 
+        display: flex;
+        align-items: center;
+        height: 4rem;
+        font-weight: 800;
+        margin-right: 1.5rem;
+    }
+    &__select-option {
+        display: flex;
+        align-items: center;
+    }
     &__media {
         display: flex;
         flex-wrap: wrap;
     }
 
     &__medium {
-        width: 20rem;
+        width: 100%;
         height: 25rem;
         padding: 1rem;
-        flex-basis: 25%;
+        flex-basis: 33%;
         color: $text-color-secondary;
 
         &__image {
-        width: 20rem;
+        width: 100%;
         height: 20rem;
         object-fit: cover;
         }
         &__video {
-        width: 35rem;
+        width: 100%;
         height: 20rem;
         }
 
         &__item {
-            width: 20rem;
+            width: 100%;
             display: flex;
             justify-content: space-between;
 

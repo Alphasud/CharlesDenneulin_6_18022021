@@ -1,6 +1,8 @@
 import { getData } from './fetchData.js';
 import { createPhotographerCard, filterData, createLinksToPages, likeMedia } from './homePageFunctions.js';
-import {displayMediaList} from './displayMediaList.js'
+import { displayPhotographerPage } from './displayPhotographerPage.js'
+import { selectFilter } from './dropDownFilter.js'
+import { mediaFilter } from './mediaFilter.js';
 
 
 export class PageFactory {
@@ -35,8 +37,11 @@ export class BuildPhotographerPage {
             getData().then(data => {
                 const photographers = data.photographers;
                 const media = data.media;
-                displayMediaList(photographerID, photographers, media);
-                likeMedia(); 
+                displayPhotographerPage(photographerID, photographers, media);
+                likeMedia();
+                selectFilter();
+                mediaFilter();
+                
                 
             })
         }
@@ -48,7 +53,7 @@ const app = document.querySelector('#app');
 const factory = new PageFactory();
 
 const homepage = factory.createPage('homepage');
-app.innerHTML = homepage.createHomepage();
+app.insertAdjacentHTML('afterbegin', homepage.createHomepage());
 
 
 

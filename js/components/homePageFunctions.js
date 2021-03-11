@@ -1,7 +1,8 @@
 import { headerContent } from './htmlElements.js';
-import { PageFactory, BuildPhotographerPage } from './homepageDisplay.js';
+import { PageFactory } from './homepageDisplay.js';
+import { MediatypeFactory } from './imageVideoFactory.js';
 
-////////CREATE PHOTOGRAPHER CARDS/////////
+////////**CREATE PHOTOGRAPHER CARDS**/////////
 export function createPhotographerCard(photographers) {
     const header = document.querySelector('.header');
     const photographerCard = photographers.map(photographers => {
@@ -22,19 +23,20 @@ export function createPhotographerCard(photographers) {
                     </article>`;
                 }).join('');
     header.innerHTML = headerContent;
+    const app = document.querySelector('#app');
     app.innerHTML = photographerCard;
 }
 
 
 
-///////FILTER DATA BY TAGS////////
+///////**FILTER DATA BY TAGS**////////
 export function filterData(photographers) {
+    const app = document.querySelector('#app');
     const navLinks = document.querySelectorAll('.header__nav__link');
     for (let n = 0; n < navLinks.length; n++) {
         navLinks[n].addEventListener('click', function (event) {
             event.preventDefault();
             const navLink = navLinks[n].innerText.slice(1).toLowerCase();
-            console.log(navLink);
             app.innerHTML = '';
                         
             const filteredCard = photographers.map(photographers => {
@@ -44,7 +46,6 @@ export function filterData(photographers) {
                 }).join('');
 
                 const ArrayOfTags = tags.map(element => element);
-                console.log(ArrayOfTags);
                 if (ArrayOfTags.includes(navLink)) {
                     return `
                                 <article class="card">
@@ -68,7 +69,7 @@ export function filterData(photographers) {
     }
 }
 
-///////CREATE LINKS TO PHOTOGRAPHER PAGES////////
+///////**CREATE LINKS TO PHOTOGRAPHER PAGES**////////
 export function createLinksToPages() {
     const factory = new PageFactory();
     const app = document.querySelector('#app');
@@ -84,7 +85,47 @@ export function createLinksToPages() {
     }
 }
 
-/////////TOTAL LIKES/////////
+//////////DISPLAY MEDIA LIST ON PHOTOGRAPHER'S PAGE//////////////////
+export function displayMediaList(photographerID, media, photographerItem) {
+    const mediaByID = media.filter(element => element.photographerId == photographerID);
+    const mediaList = document.querySelector('.photographer-page__media');
+    const mediaListArray = [];
+    let mediaListArrayFiltered;
+    
+        for (let x = 0; x < mediaByID.length; x++) {
+            const image = mediaByID.filter(element => element.image)[x];
+            const video = mediaByID.filter(element => element.video)[x];
+            mediaListArray.push(image);
+            mediaListArray.push(video);
+            mediaListArrayFiltered = mediaListArray.filter(element => element != undefined);
+            mediaListArrayFiltered = mediaListArrayFiltered.sort(function (a, b) { return a.likes - b.likes });
+        }
+  
+
+    const mediatypeFactory = new MediatypeFactory();
+
+    const blabla = mediaListArrayFiltered.map(mediaListArrayFiltered => {
+
+        if (mediaListArrayFiltered.image != null) {
+                const imageMedium = mediatypeFactory.createMediatype('image');
+                const singleImage = imageMedium.createPhoto(mediaListArrayFiltered, photographerItem);
+                mediaList.insertAdjacentHTML('afterbegin', singleImage);
+                
+            }
+        if (mediaListArrayFiltered.video != null) {
+                const videoMedium = mediatypeFactory.createMediatype('video');
+                const singleVideo = videoMedium.createVideo(mediaListArrayFiltered, photographerItem);
+                mediaList.insertAdjacentHTML('afterbegin', singleVideo);
+                
+
+            }
+    });
+
+    
+    
+    }
+
+/////////**INITIAL SUM OF TOTAL LIKES**/////////
 export function sumOfLike() {
     const likeNum = document.querySelectorAll('#likeNumber');
     const likeNumArray = Array.from(likeNum, e => parseFloat(e.innerText));
@@ -93,20 +134,20 @@ export function sumOfLike() {
     return sumOfLikes;
 }
 
-///////
+////////**UPDATED SUM OF TOTAL LIKES**/////////
 export function updatedSumOfLike() {
     const likeNum = document.querySelectorAll('#likeNumber');
     const likeNumArray = Array.from(likeNum, e => parseFloat(e.innerText));
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    const sumOfLikes = likeNumArray.reduce(reducer);
-    console.log(sumOfLikes);
-    return sumOfLikes;
+    const updatedSumOfLikes = likeNumArray.reduce(reducer);
+    return updatedSumOfLikes;
 
 }
 
-/////////LIKE BUTTON///////
+/////////**LIKE/UNLIKE BUTTON**///////
 export function likeMedia() {
     const likeButton = document.querySelectorAll('#likeButton');
+    const likeCounter = document.querySelector('#likeCounter');
                 for (let i = 0; i < likeButton.length; i++) {
                     likeButton[i].addEventListener('click', function () {
                         const classList = likeButton[i].classList;
@@ -115,10 +156,13 @@ export function likeMedia() {
                         if (liked) {
                             const newValue = parseFloat(oldValue[i].innerText) + 1;
                             oldValue[i].innerText = newValue;
+                            likeCounter.innerHTML = updatedSumOfLike();
                         } else {
                             const newValue = parseFloat(oldValue[i].innerText) - 1;
                             oldValue[i].innerText = newValue;
+                            likeCounter.innerHTML = updatedSumOfLike();
                         }
+                        
                         
                         
                     })
