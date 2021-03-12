@@ -1,6 +1,7 @@
 import { headerContent } from './htmlElements.js';
 import { PageFactory } from './homepageDisplay.js';
 import { MediatypeFactory } from './imageVideoFactory.js';
+import { mediaFilter } from './mediaFilter.js';
 
 ////////**CREATE PHOTOGRAPHER CARDS**/////////
 export function createPhotographerCard(photographers) {
@@ -86,9 +87,8 @@ export function createLinksToPages() {
 }
 
 //////////DISPLAY MEDIA LIST ON PHOTOGRAPHER'S PAGE//////////////////
-export function displayMediaList(photographerID, media, photographerItem) {
+export function createMediaList(photographerID, media, photographerItem) {
     const mediaByID = media.filter(element => element.photographerId == photographerID);
-    const mediaList = document.querySelector('.photographer-page__media');
     const mediaListArray = [];
     let mediaListArrayFiltered;
     
@@ -98,32 +98,35 @@ export function displayMediaList(photographerID, media, photographerItem) {
             mediaListArray.push(image);
             mediaListArray.push(video);
             mediaListArrayFiltered = mediaListArray.filter(element => element != undefined);
-            mediaListArrayFiltered = mediaListArrayFiltered.sort(function (a, b) { return a.likes - b.likes });
         }
-  
+    
+    const mediaListArrayFilteredByUser = mediaListArrayFiltered.sort(function (a, b) { return a.likes - b.likes });
+    displayMedia(mediaListArrayFilteredByUser, photographerItem);
+    mediaFilter(mediaListArrayFiltered, photographerItem);
+    likeMedia();
+}
 
+/////////**DISPLAY MEDIA BY CALLING THE IMAGE/VIDEO FACTORY **////////////
+export function displayMedia(mediaListArrayFilteredByUser, photographerItem) {
+    const mediaList = document.querySelector('.photographer-page__media');
     const mediatypeFactory = new MediatypeFactory();
 
-    const blabla = mediaListArrayFiltered.map(mediaListArrayFiltered => {
-
-        if (mediaListArrayFiltered.image != null) {
+    mediaListArrayFilteredByUser.map(mediaListArrayFilteredByUser => {
+                const ArrayList = mediaListArrayFilteredByUser;
+                
+                if (ArrayList.image != null) {
                 const imageMedium = mediatypeFactory.createMediatype('image');
-                const singleImage = imageMedium.createPhoto(mediaListArrayFiltered, photographerItem);
-                mediaList.insertAdjacentHTML('afterbegin', singleImage);
-                
-            }
-        if (mediaListArrayFiltered.video != null) {
+                const singleImage = imageMedium.createPhoto(ArrayList, photographerItem);
+                mediaList.insertAdjacentHTML('afterbegin', singleImage);  
+                }
+                if (ArrayList.video != null) {
                 const videoMedium = mediatypeFactory.createMediatype('video');
-                const singleVideo = videoMedium.createVideo(mediaListArrayFiltered, photographerItem);
+                const singleVideo = videoMedium.createVideo(ArrayList, photographerItem);
                 mediaList.insertAdjacentHTML('afterbegin', singleVideo);
-                
-
-            }
+                }
     });
-
-    
-    
-    }
+    likeMedia();
+}
 
 /////////**INITIAL SUM OF TOTAL LIKES**/////////
 export function sumOfLike() {
@@ -146,6 +149,7 @@ export function updatedSumOfLike() {
 
 /////////**LIKE/UNLIKE BUTTON**///////
 export function likeMedia() {
+    console.log('OKAY');
     const likeButton = document.querySelectorAll('#likeButton');
     const likeCounter = document.querySelector('#likeCounter');
                 for (let i = 0; i < likeButton.length; i++) {
@@ -161,11 +165,9 @@ export function likeMedia() {
                             const newValue = parseFloat(oldValue[i].innerText) - 1;
                             oldValue[i].innerText = newValue;
                             likeCounter.innerHTML = updatedSumOfLike();
-                        }
-                        
-                        
-                        
+                        }                        
                     })
                 }
-    
 }
+
+

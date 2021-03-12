@@ -1,46 +1,35 @@
-export function mediaFilter() {
+import { displayMedia } from './generalFunctions.js';
+
+export function mediaFilter(mediaListArrayFiltered, photographerItem) {
 
     const currentFilter = document.getElementById('currentFilter');
     const observer = new MutationObserver(function () {
+
         const newFilterValue = currentFilter.innerHTML;
+        const mediaList = document.querySelector('.photographer-page__media');
+        mediaList.innerHTML = '';
 
-        const mediaArticle = document.querySelectorAll('.photographer-page__medium');
-
-        if (newFilterValue === 'Date') {
-            console.log(newFilterValue);
+        if (newFilterValue === 'Date') { 
+            const mediaListArrayFilteredByUser = mediaListArrayFiltered.sort(function (a, b) {return new Date(b.date) - new Date(a.date);});
+            displayMedia(mediaListArrayFilteredByUser, photographerItem);  
         }
 
         if (newFilterValue === 'Popularité') {
-            console.log(newFilterValue);
-            console.log(mediaArticle);
-            for (const mediumArticle of mediaArticle) {
-                const likeValue = mediumArticle.querySelector('#likeNumber');
-                const mediumArticleValue = likeValue.innerText;
-                console.log(mediumArticleValue);
-            }
+            const mediaListArrayFilteredByUser = mediaListArrayFiltered.sort(function (a, b) { return a.likes - b.likes });
+            displayMedia(mediaListArrayFilteredByUser, photographerItem);
         }
-
+    
         if (newFilterValue === 'Titre') {
-            console.log(newFilterValue);
+            const mediaListArrayFilteredByUser = mediaListArrayFiltered.sort(function (a, b) {
+                let x = a.alt;
+                let y = b.alt;
+                if (x < y) return 1;
+                if (x > y) return -1;
+                return 0;
+            });
+            displayMedia(mediaListArrayFilteredByUser, photographerItem);
         }
-
-
-
-
-
     });
 
     observer.observe(currentFilter, { subtree: true, childList: true });
-
-
-
-
-
-
-
-
-
-
-
-
 }
