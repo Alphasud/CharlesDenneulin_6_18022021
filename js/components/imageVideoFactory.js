@@ -4,7 +4,9 @@ export class MediatypeFactory {
         this.createMediatype = function (type) {
             let media;
             if (type === 'video') media = new Video();
-            else if (type === 'image') media = new Photo();
+            else if (type === 'photo') media = new Photo();
+            else if (type === 'video-carousel') media = new VideoCarousel();
+            else if (type === 'photo-carousel') media = new PhotoCarousel();
             return media;
         }
     }
@@ -15,7 +17,7 @@ export class Photo {
         this.createPhoto = function (ArrayList, photographerItem) {
             return `
                     <article class='photographer-page__medium'>
-                        <img class="photographer-page__medium__image" src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${ArrayList.image}' alt=${ArrayList.alt}></img>
+                        <img id=${ArrayList.id} class="photographer-page__medium__element" src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${ArrayList.image}' alt=${ArrayList.alt}></img>
                         <div class='photographer-page__medium__item'>
                             <p class='photographer-page__medium__item__name'>${ArrayList.alt}</p>
                             <div class='photographer-page__medium__item__info'>
@@ -37,20 +39,48 @@ export class Video {
         this.createVideo = function (ArrayList, photographerItem) {
             return `
                     <article class='photographer-page__medium'>
-                    <video class='photographer-page__medium__video' controls>
+                    <video id=${ArrayList.id} class='photographer-page__medium__element'>
                         <source src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${ArrayList.video}' type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <div class='photographer-page__medium__item__video'>
-                            <p class='photographer-page__medium__item__video__name'>${ArrayList.alt}</p>
-                            <div class='photographer-page__medium__item__video__info'>
-                                <p class='photographer-page__medium__item__video__info__price'>${ArrayList.price} &euro;</p>
+                    <div class='photographer-page__medium__item'>
+                            <p class='photographer-page__medium__item__name'>${ArrayList.alt}</p>
+                            <div class='photographer-page__medium__item__info'>
+                                <p class='photographer-page__medium__item__info__price'>${ArrayList.price} &euro;</p>
                                 <button id='likeButton' class='button--like'>
-                                    <p id='likeNumber' class='photographer-page__medium__item__video__info__likes'>${ArrayList.likes}</p>
+                                    <p id='likeNumber' class='photographer-page__medium__item__info__likes'>${ArrayList.likes}</p>
                                     <i class="fas fa-heart"></i>
                                 </button>
                             </div>
                         </div>
+                    </article>`;
+        }
+    }
+}
+
+export class VideoCarousel {
+    constructor() {
+        this._type = 'video-carousel';
+        this.createVideoCarousel = function (mediaListArrayFiltered, photographerItem) {
+            return `<article class='photographer-page__medium__modal'>
+                    <video id='mediaElement' class='photographer-page__medium__modal__element' controls>
+                        <source src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${mediaListArrayFiltered.video}' type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class='photographer-page__medium__modal__title'>${mediaListArrayFiltered.alt}</p>
+                    </article>`;
+        }
+    }
+}
+
+export class PhotoCarousel {
+    constructor() {
+        this._type = 'photo-carousel';
+        this.createPhotoCarousel = function (mediaListArrayFiltered, photographerItem) {
+            return `<article class='photographer-page__medium__modal'>
+                    <img id='mediaElement' class="photographer-page__medium__modal__element"
+                        src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${mediaListArrayFiltered.image}' alt=${mediaListArrayFiltered.alt}>
+                    <p class='photographer-page__medium__modal__title'>${mediaListArrayFiltered.alt}</p>
                     </article>`;
         }
     }

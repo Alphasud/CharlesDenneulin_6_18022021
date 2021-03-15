@@ -1,5 +1,5 @@
 import { cardHeaderContent } from './htmlElements.js';
-import { sumOfLike, createMediaList, likeMedia } from './generalFunctions.js';
+import { sumOfLike, createMediaList, createModal } from './generalFunctions.js';
 import { selectFilter } from './dropDownFilter.js'
 
 
@@ -60,13 +60,16 @@ export function displayPhotographerPage(photographerID, photographers, media) {
     
     const header = document.querySelector('.header');
     const app = document.querySelector('.app');
+    
     header.innerHTML = cardHeaderContent;
     app.innerHTML = page;
+    createModal();
     createMediaList(photographerID, media, photographerItem);
     const likeCounter = document.querySelector('#likeCounter');
     likeCounter.innerHTML = sumOfLike();
-    likeMedia();
     selectFilter();
+
+    
    
 
     

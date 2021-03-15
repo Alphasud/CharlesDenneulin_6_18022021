@@ -1,0 +1,72 @@
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  margin: auto auto;
+  border-radius: 3px;
+  width: 70vw; 
+  height: 70vh; 
+  overflow:hidden;
+  background-color: rgba($color-white, 0.9);
+}
+
+.modal.open {
+    display: block;
+}
+
+.photographer-page__medium__modal {
+  width: 70vw;
+  height: 65vh;
+  flex-direction: column;
+
+  &__element {
+    cursor: default;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 4rem;
+    border-radius: 3px;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 2rem;
+    color: $text-color-secondary;
+    padding: 1rem 4rem;
+    font-size: 1.2rem;
+  }
+}
+
+
+
+.arrow-left {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  font-size: 3rem;
+  color: rgba($text-color-secondary, 0.9);
+  cursor: pointer;
+  transition: all .2s ease-in;
+  &:hover{font-size: 3.5rem;}
+}
+
+.arrow-right {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  font-size: 3rem;
+  color: rgba($text-color-secondary, 0.9);
+  cursor: pointer;
+  transition: all .2s ease-in;
+  &:hover{font-size: 3.5rem;}
+}
+
+.close {
+  color: $text-color-secondary;
+  position: absolute;
+  font-size: 2rem;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+}

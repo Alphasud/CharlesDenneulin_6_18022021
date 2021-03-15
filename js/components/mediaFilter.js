@@ -8,15 +8,20 @@ export function mediaFilter(mediaListArrayFiltered, photographerItem) {
         const newFilterValue = currentFilter.innerHTML;
         const mediaList = document.querySelector('.photographer-page__media');
         mediaList.innerHTML = '';
+        
 
         if (newFilterValue === 'Date') { 
             const mediaListArrayFilteredByUser = mediaListArrayFiltered.sort(function (a, b) {return new Date(b.date) - new Date(a.date);});
             displayMedia(mediaListArrayFilteredByUser, photographerItem);  
+            
+            
         }
 
         if (newFilterValue === 'Popularité') {
             const mediaListArrayFilteredByUser = mediaListArrayFiltered.sort(function (a, b) { return a.likes - b.likes });
             displayMedia(mediaListArrayFilteredByUser, photographerItem);
+            
+            
         }
     
         if (newFilterValue === 'Titre') {
@@ -28,6 +33,8 @@ export function mediaFilter(mediaListArrayFiltered, photographerItem) {
                 return 0;
             });
             displayMedia(mediaListArrayFilteredByUser, photographerItem);
+            
+            
         }
     });
 

@@ -160,14 +160,11 @@ body {
   flex-basis: 33%;
   color: #901C1C;
 }
-.photographer-page__medium__image {
+.photographer-page__medium__element {
   width: 100%;
   height: 20rem;
   object-fit: cover;
-}
-.photographer-page__medium__video {
-  width: 100%;
-  height: 20rem;
+  cursor: pointer;
 }
 .photographer-page__medium__item {
   width: 100%;
@@ -183,22 +180,6 @@ body {
   margin-right: 1rem;
 }
 .photographer-page__medium__item__info__likes {
-  margin-right: 0.25rem;
-}
-.photographer-page__medium__item__video {
-  width: 35rem;
-  display: flex;
-  justify-content: space-between;
-}
-.photographer-page__medium__item__video__info {
-  display: flex;
-  align-items: baseline;
-  justify-content: end;
-}
-.photographer-page__medium__item__video__info__price {
-  margin-right: 1rem;
-}
-.photographer-page__medium__item__video__info__likes {
   margin-right: 0.25rem;
 }
 .photographer-page__static-counter {
@@ -223,6 +204,10 @@ body {
 }
 .photographer-page__static-counter__like-counter p {
   margin-right: 0.5rem;
+}
+
+.photographer-page.blur {
+  filter: blur(3px);
 }
 
 .custom-select {
@@ -328,6 +313,79 @@ body {
 .open .arrow::before {
   left: 4.5px;
   transform: rotate(-45deg);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  margin: auto auto;
+  border-radius: 3px;
+  width: 70vw;
+  height: 70vh;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.modal.open {
+  display: block;
+}
+
+.photographer-page__medium__modal {
+  width: 70vw;
+  height: 65vh;
+  flex-direction: column;
+}
+.photographer-page__medium__modal__element {
+  cursor: default;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 4rem;
+  border-radius: 3px;
+}
+.photographer-page__medium__modal__title {
+  position: absolute;
+  bottom: 2rem;
+  color: #901C1C;
+  padding: 1rem 4rem;
+  font-size: 1.2rem;
+}
+
+.arrow-left {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  font-size: 3rem;
+  color: rgba(144, 28, 28, 0.9);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.arrow-left:hover {
+  font-size: 3.5rem;
+}
+
+.arrow-right {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  font-size: 3rem;
+  color: rgba(144, 28, 28, 0.9);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.arrow-right:hover {
+  font-size: 3.5rem;
+}
+
+.close {
+  color: #901C1C;
+  position: absolute;
+  font-size: 2rem;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
 }
 
 .header {

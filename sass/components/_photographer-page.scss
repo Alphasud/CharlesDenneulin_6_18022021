@@ -34,14 +34,11 @@
         flex-basis: 33%;
         color: $text-color-secondary;
 
-        &__image {
+        &__element {
         width: 100%;
         height: 20rem;
         object-fit: cover;
-        }
-        &__video {
-        width: 100%;
-        height: 20rem;
+        cursor: pointer;
         }
 
         &__item {
@@ -64,25 +61,6 @@
             
         }
 
-        &__item__video {
-            width: 35rem;
-            display: flex;
-            justify-content: space-between;
-
-            &__info{
-                display: flex;
-                align-items: baseline;
-                justify-content: end;
-                
-                &__price {
-                    margin-right: 1rem;
-                }
-                &__likes {
-                    margin-right: .25rem;
-                }
-            }
-            
-        }
     }
     &__static-counter {
         display: flex;
@@ -105,8 +83,9 @@
             align-items: baseline;
         }
 
-    }
+    } 
+}
 
-    
-    
+.photographer-page.blur {
+    filter: blur(3px);
 }
