@@ -31,6 +31,11 @@ a {
   margin: 2rem 5rem;
 }
 
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    margin: 2rem 30rem;
+  }
+}
 body {
   font-family: "DM Sans", sans-serif;
   font-weight: 300;
@@ -164,6 +169,7 @@ body {
   width: 100%;
   height: 20rem;
   object-fit: cover;
+  object-position: top;
   cursor: pointer;
 }
 .photographer-page__medium__item {
@@ -187,7 +193,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  right: 2rem;
+  right: 25rem;
   bottom: 0rem;
   padding: 1.5rem;
   background-color: #D3573C;
@@ -315,39 +321,60 @@ body {
   transform: rotate(-45deg);
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(202, 202, 202, 0.6);
+  /* color */
+  display: none;
+  z-index: 1;
+}
+
+.overlay.open {
+  display: block;
+}
+
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  z-index: 10;
   margin: auto auto;
   border-radius: 3px;
-  width: 70vw;
+  width: 50vw;
   height: 70vh;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.9);
 }
+.modal__content {
+  width: 100%;
+}
 
 .modal.open {
-  display: block;
+  display: flex;
 }
 
 .photographer-page__medium__modal {
-  width: 70vw;
+  width: 100%;
   height: 65vh;
-  flex-direction: column;
 }
 .photographer-page__medium__modal__element {
   cursor: default;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
   width: 100%;
   height: 100%;
-  padding: 1rem 4rem;
+  margin: 1rem 4rem;
   border-radius: 3px;
 }
 .photographer-page__medium__modal__title {
   position: absolute;
-  bottom: 2rem;
+  bottom: 0.5rem;
   color: #901C1C;
   padding: 1rem 4rem;
   font-size: 1.2rem;
@@ -371,7 +398,7 @@ body {
   right: 1rem;
   top: 50%;
   font-size: 3rem;
-  color: rgba(144, 28, 28, 0.9);
+  color: rgba(144, 28, 28, 0.8);
   cursor: pointer;
   transition: all 0.2s ease-in;
 }
@@ -382,10 +409,87 @@ body {
 .close {
   color: #901C1C;
   position: absolute;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  top: 0.25rem;
+  right: 1.1rem;
+  cursor: pointer;
+}
+.close--white {
+  color: #FFF;
+  position: absolute;
+  font-size: 2.5rem;
   top: 1rem;
   right: 1.5rem;
   cursor: pointer;
+}
+
+.modal__form {
+  display: none;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  margin: auto auto;
+  border-radius: 3px;
+  width: 30vw;
+  overflow: hidden;
+  background-color: #D3573C;
+  padding: 1rem 2rem 3rem 2rem;
+}
+.modal__form__title {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.modal__form__form-content {
+  display: flex;
+  flex-direction: column;
+}
+.modal__form__form-content__label {
+  font-size: 1.8rem;
+}
+.modal__form__form-content__input {
+  padding-left: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 3px;
+  height: 3.5rem;
+  border: none;
+}
+.modal__form__form-content__input--message {
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  height: 10rem;
+  font-size: 1.5rem;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 2rem;
+  font-family: inherit;
+}
+.modal__form__form-content__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #901C1C;
+  color: #FFF;
+  border: none;
+  border-radius: 3px;
+  width: 10rem;
+  height: 4.5rem;
+  outline: none;
+  transition: color 0.1s ease;
+  cursor: pointer;
+}
+.modal__form__form-content__button:hover {
+  color: #000;
+}
+.modal__form__form-content__button:focus {
+  color: #000;
+}
+
+.modal__form.open {
+  display: block;
 }
 
 .header {

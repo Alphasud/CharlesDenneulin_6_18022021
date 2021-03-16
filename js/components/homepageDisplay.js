@@ -20,11 +20,11 @@ class BuildHomepage {
         this.type = 'homepage';
         this.createHomepage = function () {
             getData().then(data => {
-                const photographers = data.photographers;               
+                const photographers = data.photographers;
                 createPhotographerCard(photographers);
                 filterData(photographers);
-                createLinksToPages(); 
-            }) 
+                createLinksToPages();
+            }); 
         }     
     }
 }
@@ -37,7 +37,7 @@ export class BuildPhotographerPage {
                 const photographers = data.photographers;
                 const media = data.media;
                 displayPhotographerPage(photographerID, photographers, media);
-            })
+            });
         }
     }
 

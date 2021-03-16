@@ -1,5 +1,5 @@
 import { cardHeaderContent } from './htmlElements.js';
-import { sumOfLike, createMediaList, createModal } from './generalFunctions.js';
+import { sumOfLike, createMediaList, createModal, createForm, filterData } from './generalFunctions.js';
 import { selectFilter } from './dropDownFilter.js'
 
 
@@ -7,7 +7,7 @@ export function displayPhotographerPage(photographerID, photographers, media) {
 
     const photographerItem = photographers.find(element => element.id == photographerID);
     const tagsArray = photographerItem.tags.map(tags => {
-        return `<a href="" class="card__tags">#${tags}</a>`;
+        return `<a href="" class="header__nav__link">#${tags}</a>`;
     }).join('');
 
     const page = `
@@ -63,8 +63,10 @@ export function displayPhotographerPage(photographerID, photographers, media) {
     
     header.innerHTML = cardHeaderContent;
     app.innerHTML = page;
+    filterData(photographers)
     createModal();
     createMediaList(photographerID, media, photographerItem);
+    createForm(photographers, photographerID); 
     const likeCounter = document.querySelector('#likeCounter');
     likeCounter.innerHTML = sumOfLike();
     selectFilter();

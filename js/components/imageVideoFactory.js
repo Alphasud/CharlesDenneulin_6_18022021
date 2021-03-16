@@ -63,7 +63,7 @@ export class VideoCarousel {
         this._type = 'video-carousel';
         this.createVideoCarousel = function (mediaListArrayFiltered, photographerItem) {
             return `<article class='photographer-page__medium__modal'>
-                    <video id='mediaElement' class='photographer-page__medium__modal__element' controls>
+                    <video id='mediaElement' class='photographer-page__medium__modal__element'>
                         <source src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${mediaListArrayFiltered.video}' type="video/mp4">
                         Your browser does not support the video tag.
                     </video>

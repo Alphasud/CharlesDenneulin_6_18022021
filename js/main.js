@@ -7,3 +7,4 @@ import { } from './components/displayPhotographerPage.js';
 import { } from './components/dropDownFilter.js';
 import { } from './components/mediaFilter.js';
 
+
