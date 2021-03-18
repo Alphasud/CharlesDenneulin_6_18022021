@@ -17,12 +17,14 @@ export class Photo {
         this.createPhoto = function (ArrayList, photographerItem) {
             return `
                     <article class='photographer-page__medium'>
-                        <img id=${ArrayList.id} class="photographer-page__medium__element" src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${ArrayList.image}' alt=${ArrayList.alt}></img>
+                        <a tabindex='0' aria-label='${ArrayList.alt}, close up view' href="" class="photographer-page__medium__link">
+                            <img id=${ArrayList.id} class="photographer-page__medium__element" src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${ArrayList.image}' alt=${ArrayList.alt}></img>
+                        </a>
                         <div class='photographer-page__medium__item'>
                             <p class='photographer-page__medium__item__name'>${ArrayList.alt}</p>
                             <div class='photographer-page__medium__item__info'>
                                 <p class='photographer-page__medium__item__info__price'>${ArrayList.price} &euro;</p>
-                                <button id='likeButton' class='button--like'>
+                                <button aria-label='likes' id='likeButton' class='button--like'>
                                     <p id='likeNumber' class='photographer-page__medium__item__info__likes'>${ArrayList.likes}</p>
                                     <i class="fas fa-heart"></i>
                                 </button>
@@ -39,15 +41,17 @@ export class Video {
         this.createVideo = function (ArrayList, photographerItem) {
             return `
                     <article class='photographer-page__medium'>
+                    <a tabindex='0' aria-label='${ArrayList.alt}, close up view' href="" class="photographer-page__medium__link">
                     <video id=${ArrayList.id} class='photographer-page__medium__element'>
                         <source src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${ArrayList.video}' type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    </a>
                     <div class='photographer-page__medium__item'>
                             <p class='photographer-page__medium__item__name'>${ArrayList.alt}</p>
                             <div class='photographer-page__medium__item__info'>
                                 <p class='photographer-page__medium__item__info__price'>${ArrayList.price} &euro;</p>
-                                <button id='likeButton' class='button--like'>
+                                <button aria-label='likes' id='likeButton' class='button--like'>
                                     <p id='likeNumber' class='photographer-page__medium__item__info__likes'>${ArrayList.likes}</p>
                                     <i class="fas fa-heart"></i>
                                 </button>
@@ -63,7 +67,7 @@ export class VideoCarousel {
         this._type = 'video-carousel';
         this.createVideoCarousel = function (mediaListArrayFiltered, photographerItem) {
             return `<article class='photographer-page__medium__modal'>
-                    <video id='mediaElement' class='photographer-page__medium__modal__element'>
+                    <video id='mediaElement' class='photographer-page__medium__modal__element' controls>
                         <source src='./images/${photographerItem.name.split(' ').slice(0, 1)}/${mediaListArrayFiltered.video}' type="video/mp4">
                         Your browser does not support the video tag.
                     </video>

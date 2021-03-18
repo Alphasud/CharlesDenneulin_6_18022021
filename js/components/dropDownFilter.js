@@ -5,9 +5,18 @@ export function selectFilter() {
     const customSelect = document.querySelector('.custom-select');
     const customOption = document.querySelectorAll('.custom-option');
 
-    customSelectWrapper.addEventListener('click', function() {
+    customSelectWrapper.addEventListener('click', function () {
         customSelect.classList.toggle('open');
-    })
+    });
+
+    /*customSelectWrapper.addEventListener('keydown', function (event) {
+        if (event.key == 'ArrowDown') {
+            customSelect.classList.add('open');
+        }
+        if (event.key == 'ArrowUp') {
+           customSelect.classList.remove('open');     
+        }
+     });*/
     
     for (const option of customOption) {
         option.addEventListener('click', function() { 
@@ -16,6 +25,18 @@ export function selectFilter() {
                 option.classList.add('selected'); //Add the selected class to the clicked item thus making it display:none
                 option.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
                 //Pass the content of the clicked item to custom-select__trigger span
+            }
+        })
+
+        option.addEventListener('keydown', function (event) { 
+            if (event.key == 'Enter') {
+                console.log('yes');
+                if (!option.classList.contains('selected')) { //Target items of customOption that don't contain 'selected'
+                    option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');    // Find the 'selected' class and remove it making the element visible
+                    option.classList.add('selected'); //Add the selected class to the clicked item thus making it display:none
+                    option.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
+                    //Pass the content of the clicked item to custom-select__trigger span
+                }
             }
         })
     }

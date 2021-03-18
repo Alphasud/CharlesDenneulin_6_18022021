@@ -38,6 +38,7 @@
  .photographer-page__medium__modal {
     width: 100%;
     height: 65vh;
+    padding: 1rem 4rem;
 
     &__element {
       cursor: default;
@@ -45,15 +46,13 @@
       object-position: top;
       width: 100%;
       height: 100%;
-      margin: 1rem 4rem;
       border-radius: 3px;
     }
 
     &__title {
       position: absolute;
-      bottom: 0.5rem;
+      bottom: 2.5rem;
       color: $text-color-secondary;
-      padding: 1rem 4rem;
       font-size: 1.2rem;
     }
 }
@@ -83,6 +82,8 @@
 
 .close {
   color: $text-color-secondary;
+  background-color: transparent;
+  border:none;
   position: absolute;
   font-size: 2.5rem;
   top: .25rem;
@@ -91,6 +92,8 @@
 
   &--white {
     color: $color-white;
+    background-color: transparent;
+    border: none;
     position: absolute;
     font-size: 2.5rem;
     top: 1rem;

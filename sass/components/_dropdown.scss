@@ -4,8 +4,18 @@
      width: 10rem;
      display: flex;
      flex-direction: column;
+     border: none;
+     &:hover {
+        background-color: $background-color-secondary;
+        color: $color-black;
+    }
+     &:focus{
+        background-color: $background-color-secondary;
+        color: $color-black;
+     }
 
      &__trigger {
+         width: 10rem;
         position: relative;
         display: flex;
         align-items: center;
@@ -16,6 +26,14 @@
         background-color: $background-color-primary;
         cursor: pointer;
         border-radius: 2.5px;
+        &:hover {
+        background-color: $background-color-secondary;
+        color: $color-black;
+    }
+     &:focus{
+        background-color: $background-color-secondary;
+        color: $color-black;
+     }
      }
 }
  
@@ -37,6 +55,7 @@
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
     }
+    
 }
  .custom-select.open .custom-options {
      opacity: 1;
@@ -50,13 +69,21 @@
      color: $color-white;
      height: 4rem;
      cursor: pointer;
+     text-align: left;
      border-top: 1px solid rgba($color-white, 0.6);
      transition: all 0.25s;
+     &:hover {
+    background-color: $background-color-secondary;
+    color: $color-black;
+    cursor: pointer;
+     font-size: 1.5rem;
+    }
+     &:focus{
+        background-color: $background-color-secondary;
+        color: $color-black;
+     }
 }
- .custom-option:hover {
-     cursor: pointer;
-     font-size: 1.2rem;
-}
+
  .custom-option.selected {
      color: $color-white;
      background-color: $background-color-secondary;

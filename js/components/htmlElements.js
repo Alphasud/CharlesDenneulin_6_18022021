@@ -2,9 +2,9 @@
 
 export const headerContent = `
                 <a href="/index.html" class="header__link">
-                    <img src="images/logo.png" alt="Logo de FishEye" class="header__logo">
+                    <img src="images/logo.png" alt="Fisheye Home page" class="header__logo">
                 </a>
-                <nav class="header__nav">
+                <nav class="header__nav" aria-label='photographer categories'>
                     <a href="" class="header__nav__link">#Portrait</a>
                     <a href="" class="header__nav__link">#Art</a>
                     <a href="" class="header__nav__link">#Fashion</a>

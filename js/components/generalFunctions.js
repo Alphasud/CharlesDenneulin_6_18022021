@@ -9,12 +9,12 @@ export function createPhotographerCard(photographers) {
     const photographerCard = photographers.map(photographers => {
                     const tags = photographers.tags;
                     const tagsArray = tags.map(tags => {
-                        return `<a href="" class="header__nav__link">#${tags}</a>`
+                        return `<a aria-label='Tag' href="" class="header__nav__link">#${tags}</a>`
                     }).join('');
                     return `
                     <article class="card">
                         <a id="${photographers.id}" class="card__general-link" href="">
-                            <img class="card__image" src="./images/PhotographersIDPhotos/${photographers.portrait}" alt="">
+                            <img aria-label='${photographers.name}' class="card__image" src="./images/PhotographersIDPhotos/${photographers.portrait}" alt="">
                             <h2 class="card__name">${photographers.name}</h2>
                         </a>
                         <p class="card__location">${photographers.city}, ${photographers.country}</p>
@@ -141,22 +141,28 @@ export function displayMedia(mediaListArrayFilteredByUser, photographerItem) {
     });
     likeMedia();
 
-    const mediaElement = document.querySelectorAll('.photographer-page__medium__element');
+
+    ////////OPEN IMAGE ON MODAL/////////
+    const mediaLink = document.querySelectorAll('.photographer-page__medium__link');
+
     const overlay = document.querySelector('.overlay');
     const modal = document.querySelector('.modal');
     const header = document.querySelector('.header');
-    let mediaID;
+    let mediaID = 1;
     
-    for (let i = 0; i < mediaElement.length; i++) {
-        mediaElement[i].addEventListener('click', function () {
+    for (let i = 0; i < mediaLink.length; i++) {
+        mediaLink[i].addEventListener('click', function (e) {
+            e.preventDefault();
             modal.classList.add('open');
             overlay.classList.add('open');
             const photographerPage = document.querySelector('.photographer-page');
             photographerPage.style.filter = 'blur(3px)';
+            photographerPage.setAttribute('aria-hidden', 'true');
             header.style.filter = 'blur(3px)';
-            mediaID = i+1;
+            mediaID += i;
             mediaCarousel(mediaID);
         });
+    
     }
 
     const contactButton = document.querySelector('.button');
@@ -165,8 +171,17 @@ export function displayMedia(mediaListArrayFilteredByUser, photographerItem) {
         modalForm.classList.add('open');
         overlay.classList.add('open');
         const photographerPage = document.querySelector('.photographer-page');
+        photographerPage.setAttribute('aria-hidden', 'true');
         photographerPage.style.filter = 'blur(3px)';
         header.style.filter = 'blur(3px)';
+
+         const keepFocus = () => {
+            const closeElement = document.querySelector('.close--white');
+            closeElement.focus();
+            const sendButton = document.querySelector('.modal__form__form-content__button');
+            sendButton.addEventListener('focusout', () => { closeElement.focus(); })
+        }
+        keepFocus();
     });
 }
 
@@ -221,9 +236,10 @@ export function createModal() {
 
     const modal = document.createElement('section');
     modal.classList.add('modal');
+    modal.setAttribute('role', 'dialog');
     overlay.insertAdjacentElement('afterbegin', modal);
 
-    const closeElement = document.createElement('span');
+    const closeElement = document.createElement('button');
     closeElement.classList.add('close');
     closeElement.innerHTML = '&#10005;';
     modal.insertAdjacentElement('afterbegin', closeElement);
@@ -234,11 +250,13 @@ export function createModal() {
 
     const arrowLeft = document.createElement('a');
     arrowLeft.classList.add('arrow-left');
+    arrowLeft.setAttribute('href', '');
     arrowLeft.innerHTML = '&#10094;';
     modal.insertAdjacentElement('beforeend', arrowLeft);
 
     const arrowRight = document.createElement('a');
     arrowRight.classList.add('arrow-right');
+    arrowRight.setAttribute('href', '');
     arrowRight.innerHTML = '&#10095;';
     modal.insertAdjacentElement('beforeend', arrowRight);
 
@@ -247,6 +265,7 @@ export function createModal() {
         modal.classList.remove('open');
         overlay.classList.remove('open');
         const photographerPage = document.querySelector('.photographer-page');
+       photographerPage.setAttribute('aria-hidden', 'false');
         photographerPage.style.filter = '';
         header.style.filter = '';
     });
@@ -255,8 +274,13 @@ export function createModal() {
 
 /////////**CREATE LINKS TO CAROUSEL**/////////
 export function mediaCarousel(mediaID) {
+    const closeButton = document.querySelector('.close');
+    closeButton.focus();
+
     const arrowLeft = document.querySelector('.arrow-left');
     const arrowRight = document.querySelector('.arrow-right');
+    arrowRight.addEventListener('focusout', () => { closeButton.focus();})
+
     let slideIndex = 1;
     
     function showSlides(n) {
@@ -288,12 +312,23 @@ export function mediaCarousel(mediaID) {
         showSlides(slideIndex += n);
     }
 
-    arrowLeft.addEventListener('click', function () {
+    arrowLeft.addEventListener('click', function (e) {
+        e.preventDefault();
         nextSlide(-1);
-        
     });
-    arrowRight.addEventListener('click', function () {
+
+    arrowRight.addEventListener('click', function (e) {
+        e.preventDefault();
         nextSlide(1);
+    });
+
+    window.addEventListener('keydown', function (event) {
+        if (event.key == 'ArrowRight') {
+          nextSlide(1);  
+        }
+        if (event.key == 'ArrowLeft') {
+            nextSlide(-1);
+        }
         
     });
 }
@@ -309,7 +344,7 @@ export function createForm(photographers, photographerID) {
     modalForm.classList.add('modal__form');
     modal.insertAdjacentElement('afterend', modalForm);
 
-    const closeElement = document.createElement('span');
+    const closeElement = document.createElement('button');
     closeElement.classList.add('close--white');
     closeElement.innerHTML = '&#10005;';
     modalForm.insertAdjacentElement('afterbegin', closeElement);
@@ -390,6 +425,7 @@ export function createForm(photographers, photographerID) {
         overlay.classList.remove('open');
         const header = document.querySelector('.header');
         const photographerPage = document.querySelector('.photographer-page');
+        photographerPage.setAttribute('aria-hidden', 'false');
         photographerPage.style.filter = '';
         header.style.filter = '';
         
@@ -402,12 +438,13 @@ export function createForm(photographers, photographerID) {
         console.log('Email : ' + emailInput.value);
         console.log('Message : ' + messageInput.value);
         formContent.reset();
+         const overlay = document.querySelector('.overlay');
+        modalForm.classList.remove('open');
+        overlay.classList.remove('open');
+        const header = document.querySelector('.header');
+        const photographerPage = document.querySelector('.photographer-page');
+        photographerPage.setAttribute('aria-hidden', 'false');
+        photographerPage.style.filter = '';
+        header.style.filter = '';
     });
-
-
-
-
-
-
-
 }

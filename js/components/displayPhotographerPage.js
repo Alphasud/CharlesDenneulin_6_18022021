@@ -26,23 +26,23 @@ export function displayPhotographerPage(photographerID, photographers, media) {
                 </div>
 
                 <div class='photographer-page__header-right'>
-                    <img class="card__image" src="./images/PhotographersIDPhotos/${photographerItem.portrait}" alt="">
+                    <img class="card__image" src="./images/PhotographersIDPhotos/${photographerItem.portrait}" alt="" aria-label='${photographerItem.name}'>
                 </div>
                 </section>
                 <section class='photographer-page__select-option'>
-                    <label>Trier par</label>    
+                    <label id='listbox1label' role='label' for='select'>Trier par</label>    
                     <div class="custom-select-wrapper">
-                        <div class="custom-select">
-                            <div class="custom-select__trigger">
+                        <button id='select' class="custom-select" role='button' aria-haspopup='listbox' aria-activedescendant='listbox1-1' aria-expanded>
+                            <div class="custom-select__trigger" aria-selected='true'>
                                 <span id='currentFilter'>Popularité</span>
                                 <div class="arrow"></div>
                             </div>
                             <div class="custom-options">
-                                <span class="custom-option selected" data-value="Popularité">Popularité</span>
-                                <span class="custom-option" data-value="Date">Date</span>
-                                <span class="custom-option" data-value="Titre">Titre</span>
+                                <span tabindex='0' role='option' id='listbox1-1' aria-activedescendant aria-selected='true' aria-labelledby='listbox1label' class="custom-option selected" data-value="Popularité" aria-label='Popularité'>Popularité</span>
+                                <span tabindex='0' role='option' id='listbox1-2' aria-activedescendant aria-labelledby='listbox1label' class="custom-option" data-value="Date" aria-label='Date'>Date</span>
+                                <span tabindex='0' role='option' id='listbox1-3' aria-activedescendant  aria-labelledby='listbox1label' class="custom-option" data-value="Titre" aria-label='Titre'>Titre</span>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </section>
                 <section class='photographer-page__media'>

@@ -19,7 +19,6 @@ body {
 a {
   text-decoration: none;
   color: currentColor;
-  outline: none;
 }
 
 ::selection {
@@ -42,6 +41,7 @@ body {
   line-height: 1.5;
   color: #000;
   background-color: #FFF;
+  font-size: 1.2rem;
 }
 
 .button {
@@ -83,9 +83,6 @@ body {
   align-items: center;
   text-align: center;
   margin-top: 2.5rem;
-}
-.card__general-link {
-  display: contents;
 }
 .card__image {
   width: 15rem;
@@ -176,6 +173,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-size: 1.2rem;
 }
 .photographer-page__medium__item__info {
   display: flex;
@@ -221,8 +219,18 @@ body {
   width: 10rem;
   display: flex;
   flex-direction: column;
+  border: none;
+}
+.custom-select:hover {
+  background-color: #D3573C;
+  color: #000;
+}
+.custom-select:focus {
+  background-color: #D3573C;
+  color: #000;
 }
 .custom-select__trigger {
+  width: 10rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -233,6 +241,14 @@ body {
   background-color: #901C1C;
   cursor: pointer;
   border-radius: 2.5px;
+}
+.custom-select__trigger:hover {
+  background-color: #D3573C;
+  color: #000;
+}
+.custom-select__trigger:focus {
+  background-color: #D3573C;
+  color: #000;
 }
 
 .custom-options {
@@ -268,13 +284,19 @@ body {
   color: #FFF;
   height: 4rem;
   cursor: pointer;
+  text-align: left;
   border-top: 1px solid rgba(255, 255, 255, 0.6);
   transition: all 0.25s;
 }
-
 .custom-option:hover {
+  background-color: #D3573C;
+  color: #000;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+}
+.custom-option:focus {
+  background-color: #D3573C;
+  color: #000;
 }
 
 .custom-option.selected {
@@ -362,6 +384,7 @@ body {
 .photographer-page__medium__modal {
   width: 100%;
   height: 65vh;
+  padding: 1rem 4rem;
 }
 .photographer-page__medium__modal__element {
   cursor: default;
@@ -369,14 +392,12 @@ body {
   object-position: top;
   width: 100%;
   height: 100%;
-  margin: 1rem 4rem;
   border-radius: 3px;
 }
 .photographer-page__medium__modal__title {
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 2.5rem;
   color: #901C1C;
-  padding: 1rem 4rem;
   font-size: 1.2rem;
 }
 
@@ -408,6 +429,8 @@ body {
 
 .close {
   color: #901C1C;
+  background-color: transparent;
+  border: none;
   position: absolute;
   font-size: 2.5rem;
   top: 0.25rem;
@@ -416,6 +439,8 @@ body {
 }
 .close--white {
   color: #FFF;
+  background-color: transparent;
+  border: none;
   position: absolute;
   font-size: 2.5rem;
   top: 1rem;
