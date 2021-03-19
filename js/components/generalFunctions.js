@@ -446,7 +446,7 @@ export function createForm(photographers, photographerID) {
          const overlay = document.querySelector('.overlay');
         modalForm.classList.remove('open');
         overlay.classList.remove('open');
-        const header = document.querySelector('.header');
+        const header = document.querySelector('.header__link__page');
         const photographerPage = document.querySelector('.photographer-page');
         photographerPage.setAttribute('aria-hidden', 'false');
         photographerPage.style.filter = '';
