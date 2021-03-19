@@ -1,0 +1,99 @@
+@media screen and (min-width: 1200px) {
+  .wrapper {
+      margin: 2rem auto;
+      max-width: 120rem;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .header {
+      padding: 0 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+      max-width: 100%;
+      margin: 2rem 1rem 0rem 1rem;
+  }
+  .header__title {
+      font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+    .header {flex-wrap: wrap; margin: 0 4rem;}
+    .header__link {order: 1;}
+    .header__title{order: 2;}
+    .header__nav {
+      order: 3;
+      flex-basis: 100%;
+    }
+    .app {
+      justify-content: space-around;
+  }
+  .photographer-page__header {
+      margin-top: 6rem;
+  }
+  .photographer-page__header-right {
+      margin-right: 5rem;
+  }
+  .header__link__page {
+      position: absolute;
+      left: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+    .button {
+        position: fixed;
+        bottom: 3rem;
+        left: 50vw;
+        width: 15rem;
+        transform: translate(-50%, -50%);
+        height: 2.5rem;
+        border-radius: 4px;
+    }
+    .photographer-page__static-counter {
+        position: relative;
+        margin: 2rem auto 0 auto;
+        right: 0;
+    }
+    .photographer-page__header-right {
+      margin-right: 0rem;
+  }
+    .photographer-page__header-left__info {
+            margin-right: 0rem;
+    }
+    .photographer-page__header-left {
+            margin-left: 0;
+    }
+    .photographer-page__medium {flex-basis: 100%; padding: 2rem 0; height: 30rem;}
+    .photographer-page__medium__element {height: 27rem;}
+}
+
+
+@media screen and (max-width: 400px) {
+    .header {flex-wrap: wrap; ; margin: 0;}
+    .header__link {order: 1;}
+    .header__title{order: 2;}
+    .header__nav {
+      order: 3;
+      flex-basis: 100%;
+    }
+    .card {flex-basis: 100%}
+    .card__image--page {
+            width: 10rem;
+            height: 10rem;
+        }
+    .modal {height: 50vh;}
+    .photographer-page__medium__modal__element {height: 68%;}
+}
+
+@media screen and (max-width: 360px) {
+     .modal__form {height: 90%;} 
+     .modal__form__form-content__input--message {height: 20rem;}  
+     .modal__form__form-content__button {margin: 0 auto; height:2.5rem; width: 50%;font-size: 1.3rem;}
+        
+        
+}

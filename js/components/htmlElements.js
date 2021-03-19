@@ -16,9 +16,9 @@ export const headerContent = `
                 </nav>
                 <h1 class="header__title">Nos photographes</h1>`;
 
-export const cardHeaderContent = `
-                <a href="/index.html" class="header__link">
+/*export const cardHeaderContent = `
+                <a href="/index.html" class="header__link__page">
                     <img src="images/logo.png" alt="Logo de FishEye" class="header__logo">
-                </a>`;
+                </a>`;*/
 
            

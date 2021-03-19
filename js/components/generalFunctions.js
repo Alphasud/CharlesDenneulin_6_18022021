@@ -13,9 +13,9 @@ export function createPhotographerCard(photographers) {
                     }).join('');
                     return `
                     <article class="card">
-                        <a id="${photographers.id}" class="card__general-link" href="">
-                            <img aria-label='${photographers.name}' class="card__image" src="./images/PhotographersIDPhotos/${photographers.portrait}" alt="">
-                            <h2 class="card__name">${photographers.name}</h2>
+                        <a id="${photographers.id}" class="card__general-link" href="" aria-label='${photographers.name}'>
+                            <img class="card__image" src="./images/PhotographersIDPhotos/${photographers.portrait}" alt="">
+                            <h2 aria='hidden' class="card__name">${photographers.name}</h2>
                         </a>
                         <p class="card__location">${photographers.city}, ${photographers.country}</p>
                         <p class="card__tagline">${photographers.tagline}</p>
@@ -144,14 +144,14 @@ export function displayMedia(mediaListArrayFilteredByUser, photographerItem) {
 
     ////////OPEN IMAGE ON MODAL/////////
     const mediaLink = document.querySelectorAll('.photographer-page__medium__link');
-
     const overlay = document.querySelector('.overlay');
     const modal = document.querySelector('.modal');
-    const header = document.querySelector('.header');
+    const header = document.querySelector('.header__link__page');
     let mediaID = 1;
     
     for (let i = 0; i < mediaLink.length; i++) {
         mediaLink[i].addEventListener('click', function (e) {
+            mediaID = 1;
             e.preventDefault();
             modal.classList.add('open');
             overlay.classList.add('open');
@@ -241,6 +241,7 @@ export function createModal() {
 
     const closeElement = document.createElement('button');
     closeElement.classList.add('close');
+    closeElement.setAttribute('aria-label', 'Fermer la fenêtre');
     closeElement.innerHTML = '&#10005;';
     modal.insertAdjacentElement('afterbegin', closeElement);
 
@@ -251,17 +252,19 @@ export function createModal() {
     const arrowLeft = document.createElement('a');
     arrowLeft.classList.add('arrow-left');
     arrowLeft.setAttribute('href', '');
+    arrowLeft.setAttribute('aria-label', 'image précédente');
     arrowLeft.innerHTML = '&#10094;';
     modal.insertAdjacentElement('beforeend', arrowLeft);
 
     const arrowRight = document.createElement('a');
     arrowRight.classList.add('arrow-right');
     arrowRight.setAttribute('href', '');
+    arrowRight.setAttribute('aria-label', 'image suivante');
     arrowRight.innerHTML = '&#10095;';
     modal.insertAdjacentElement('beforeend', arrowRight);
 
     closeElement.addEventListener('click', function () {
-        const header = document.querySelector('.header');
+        const header = document.querySelector('.header__link__page');
         modal.classList.remove('open');
         overlay.classList.remove('open');
         const photographerPage = document.querySelector('.photographer-page');
@@ -346,6 +349,7 @@ export function createForm(photographers, photographerID) {
 
     const closeElement = document.createElement('button');
     closeElement.classList.add('close--white');
+    closeElement.setAttribute('aria-label', 'Fermer la fenêtre');
     closeElement.innerHTML = '&#10005;';
     modalForm.insertAdjacentElement('afterbegin', closeElement);
 
@@ -416,6 +420,7 @@ export function createForm(photographers, photographerID) {
 
     const sendButton = document.createElement('button');
     sendButton.classList.add('modal__form__form-content__button');
+    sendButton.setAttribute('aria-label', 'Envoyer');
     sendButton.innerHTML = 'Envoyer';
     formContent.insertAdjacentElement('beforeend', sendButton);
 
@@ -423,7 +428,7 @@ export function createForm(photographers, photographerID) {
         const overlay = document.querySelector('.overlay');
         modalForm.classList.remove('open');
         overlay.classList.remove('open');
-        const header = document.querySelector('.header');
+        const header = document.querySelector('.header__link__page');
         const photographerPage = document.querySelector('.photographer-page');
         photographerPage.setAttribute('aria-hidden', 'false');
         photographerPage.style.filter = '';

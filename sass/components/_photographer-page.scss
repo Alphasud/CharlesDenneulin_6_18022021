@@ -1,15 +1,22 @@
 .photographer-page {
+    width: 100%;
     &__header {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 4rem;
+        margin-top: 3rem;
     }
     &__header-left {
         display: flex;
+        margin-left: 4rem;
         &__info {
             margin-right: 2rem;
         }
+    }
+    &__header-right {
+        margin-right: 13rem;
     }
     label { 
         display: flex;
@@ -17,20 +24,24 @@
         height: 4rem;
         font-weight: 800;
         margin-right: 1.5rem;
+        margin-left: 1.2rem;
     }
     &__select-option {
         display: flex;
         align-items: center;
+        margin-bottom: 2rem;
     }
     &__media {
         display: flex;
         flex-wrap: wrap;
+        //justify-content: space-around;
     }
 
     &__medium {
-        width: 100%;
+        max-width: 45rem;
+        min-width: 25rem;
         height: 25rem;
-        padding: 1rem;
+        padding: 2rem;
         flex-basis: 33%;
         color: $text-color-secondary;
 
@@ -40,6 +51,7 @@
         object-fit: cover;
         object-position: top;
         cursor: pointer;
+        border-radius: 4px;
         }
 
         &__item {
@@ -69,7 +81,7 @@
         justify-content: space-between;
         align-items: center;
         position: fixed;
-        right: 25rem;
+        right: 5rem;
         bottom: 0rem;
         padding: 1.5rem;
         background-color: $background-color-secondary;

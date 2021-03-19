@@ -27,12 +27,13 @@ a {
 }
 
 .wrapper {
-  margin: 2rem 5rem;
+  margin: 2rem 5rem 0rem 5rem;
 }
 
 @media screen and (min-width: 1200px) {
   .wrapper {
-      margin: 2rem 30rem;
+      margin: 2rem auto;
+      max-width: 120rem;
   }
 }
 

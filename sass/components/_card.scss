@@ -15,6 +15,13 @@
         height: 15rem;
         border-radius: 100px;
         object-fit: cover;
+
+        &--page {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 100px;
+        object-fit: cover;
+        }
     }
 
     &__name {

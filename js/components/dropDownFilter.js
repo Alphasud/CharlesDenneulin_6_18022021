@@ -30,7 +30,6 @@ export function selectFilter() {
 
         option.addEventListener('keydown', function (event) { 
             if (event.key == 'Enter') {
-                console.log('yes');
                 if (!option.classList.contains('selected')) { //Target items of customOption that don't contain 'selected'
                     option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');    // Find the 'selected' class and remove it making the element visible
                     option.classList.add('selected'); //Add the selected class to the clicked item thus making it display:none

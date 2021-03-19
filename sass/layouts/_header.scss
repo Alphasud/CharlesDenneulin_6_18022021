@@ -3,11 +3,15 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2.5rem;
+    padding: 0 6rem;
     &__logo {
         width: 15rem;
     }
 
     &__nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
  
         &__link {
         background-color: $color-white;
@@ -15,6 +19,7 @@
         border-radius: 20px;
         padding: .1rem;
         font-weight: 400;
+        margin-top: 0.5rem;
         color: $text-color-secondary;
             &:hover {
                 background-color: $background-color-primary;
@@ -33,5 +38,9 @@
     }
     &__title {
         color: $text-color-secondary;
+    }
+
+    .header__link__page {
+        margin: 0 -6rem;
     }
 }
