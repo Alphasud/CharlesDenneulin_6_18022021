@@ -33,14 +33,10 @@
       justify-content: space-around;
   }
   .photographer-page__header {
-      margin-top: 6rem;
+      margin-top: 1.5rem;
   }
   .photographer-page__header-right {
       margin-right: 5rem;
-  }
-  .header__link__page {
-      position: absolute;
-      left: 1rem;
   }
 }
 
@@ -91,8 +87,8 @@
 }
 
 @media screen and (max-width: 360px) {
-     .modal__form {height: 90%;} 
-     .modal__form__form-content__input--message {height: 20rem;}  
+     .modal__form {height: 95%;} 
+     .modal__form__form-content__input--message {height: 15rem;}  
      .modal__form__form-content__button {margin: 0 auto; height:2.5rem; width: 50%;font-size: 1.3rem;}
         
         

@@ -415,7 +415,7 @@ body {
 }
 .photographer-page__medium__modal__title {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 2rem;
   color: #901C1C;
   font-size: 1.2rem;
 }
@@ -578,7 +578,7 @@ body {
   color: #901C1C;
 }
 .header .header__link__page {
-  margin: 0 -6rem;
+  margin: 0;
 }
 
 .app {
@@ -632,16 +632,11 @@ body {
   }
 
   .photographer-page__header {
-    margin-top: 6rem;
+    margin-top: 1.5rem;
   }
 
   .photographer-page__header-right {
     margin-right: 5rem;
-  }
-
-  .header__link__page {
-    position: absolute;
-    left: 1rem;
   }
 }
 @media screen and (max-width: 550px) {
@@ -721,11 +716,11 @@ body {
 }
 @media screen and (max-width: 360px) {
   .modal__form {
-    height: 90%;
+    height: 95%;
   }
 
   .modal__form__form-content__input--message {
-    height: 20rem;
+    height: 15rem;
   }
 
   .modal__form__form-content__button {

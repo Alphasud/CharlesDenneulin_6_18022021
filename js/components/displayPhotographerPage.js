@@ -1,18 +1,16 @@
 import { sumOfLike, createMediaList, createModal, createForm, filterData } from './generalFunctions.js';
-import { selectFilter } from './dropDownFilter.js'
+import { selectFilter } from './dropDownFilter.js';
+import { cardHeaderContent } from './htmlElements.js';
 
-
+////DISPLAY PHOTOGRAPHER'S PAGE TEMPLATE AND LOAD NEEDED FUNCTIONS 
 export function displayPhotographerPage(photographerID, photographers, media) {
 
-    const photographerItem = photographers.find(element => element.id == photographerID);
-    const tagsArray = photographerItem.tags.map(tags => {
-        return `<a href="" class="header__nav__link">#${tags}</a>`;
-    }).join('');
+	const photographerItem = photographers.find(element => element.id == photographerID);
+	const tagsArray = photographerItem.tags.map(tags => {
+		return `<a href="" class="header__nav__link">#${tags}</a>`;
+	}).join('');
 
-    const page = `
-                <a href="https://alphasud.github.io/CharlesDenneulin_6_18022021/" class="header__link__page">
-                    <img src="images/logo.png" alt="Logo de FishEye" class="header__logo">
-                </a>
+	const page = `
                 <div class='photographer-page'>
                 <section class='photographer-page__header'> 
                 <div class='photographer-page__header-left'>
@@ -23,7 +21,7 @@ export function displayPhotographerPage(photographerID, photographers, media) {
                         <div class="card__tags-container">${tagsArray}</div>
                     </div>
                     <div class='photographer-page__header-left__contact'>
-                        <button aria-label='Contactez-moi ${photographerItem.name}' class='button'>Contactez-moi</button>
+                        <button aria-haspopup='modalForm' aria-label='Contactez-moi ${photographerItem.name}' class='button'>Contactez-moi</button>
                     </div>
                 </div>
 
@@ -60,18 +58,18 @@ export function displayPhotographerPage(photographerID, photographers, media) {
                 </div>`;
    
     
-    const header = document.querySelector('.header');
-    const app = document.querySelector('.app');
+	const header = document.querySelector('.header');
+	const app = document.querySelector('.app');
     
-    header.remove();
-    app.innerHTML = page;
-    filterData(photographers)
-    createModal();
-    createMediaList(photographerID, media, photographerItem);
-    createForm(photographers, photographerID); 
-    const likeCounter = document.querySelector('#likeCounter');
-    likeCounter.innerHTML = sumOfLike();
-    selectFilter();
+	header.innerHTML = cardHeaderContent;
+	app.innerHTML = page;
+	filterData(photographers);
+	createModal();
+	createMediaList(photographerID, media, photographerItem);
+	createForm(photographers, photographerID); 
+	const likeCounter = document.querySelector('#likeCounter');
+	likeCounter.innerHTML = sumOfLike();
+	selectFilter();
 
     
    

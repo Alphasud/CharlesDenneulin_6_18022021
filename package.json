@@ -1,7 +1,7 @@
 {
   "name": "charlesdenneulin_6_18022021",
   "version": "1.0.0",
-  "description": "## Scénario :",
+  "description": "FishEye photo app",
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch ./sass/main.scss:./css/style.css"
