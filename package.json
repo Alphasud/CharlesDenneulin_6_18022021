@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Alphasud/CharlesDenneulin_6_18022021#readme",
   "devDependencies": {
     "eslint": "^7.21.0",
+    "prettier": "2.2.1",
     "sass": "^1.32.7"
   }
 }
