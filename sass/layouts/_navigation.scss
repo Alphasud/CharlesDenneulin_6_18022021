@@ -1,3 +1,22 @@
+.top-Link {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    background-color: $background-color-secondary;
+    color: $color-black;
+    font-weight: 600;
+    border-radius: 3px;
+    width: 13rem;
+    margin: 0 auto;
+    cursor: pointer;
+    &:hover{
+        opacity: 1;
+    }
+    &:focus {
+        opacity: 1;
+    }
+}
+
 .app {
     display:  flex;
     justify-content: space-between ;

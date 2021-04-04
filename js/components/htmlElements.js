@@ -1,4 +1,8 @@
 
+  
+export const topLink = `<a href="#" class="top-Link">
+                        Passer au contenu
+                        </a> `;
 
 export const headerContent = `
                 <a href="/index.html" class="header__link">

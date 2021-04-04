@@ -54,7 +54,7 @@ export function selectFilter() {
 		pagePhotographer.addEventListener('click', function (event) {
 			if (!select.contains(event.target)) { // If the node does not contain .custom-select (meaning the class is currently .custom-select-open) 
 				select.classList.remove('open');        //then 'open' is removed.
-				document.querySelector('#select').setAttribute('aria-expanded', 'false');
+				select.setAttribute('aria-expanded', 'false');
 			}
 		});
 	}

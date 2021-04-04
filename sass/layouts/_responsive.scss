@@ -5,6 +5,12 @@
   }
 }
 
+@media screen and (min-width: 1050px) {
+  .header__link__page {
+        margin: 0 0 0 -5rem;
+    }
+}
+
 @media screen and (max-width: 1050px) {
   .header {
       padding: 0 0;
@@ -38,6 +44,9 @@
   .photographer-page__header-right {
       margin-right: 5rem;
   }
+  .header__link__page {
+        margin: 0 0 0 -4rem;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -84,6 +93,9 @@
         }
     .modal {height: 50vh;}
     .photographer-page__medium__modal__element {height: 68%;}
+    .header__link__page {
+        margin: 0;
+    }
 }
 
 @media screen and (max-width: 360px) {

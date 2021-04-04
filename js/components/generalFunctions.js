@@ -1,4 +1,4 @@
-import { headerContent } from './htmlElements.js';
+import { headerContent, topLink } from './htmlElements.js';
 import { PageFactory } from './homepageDisplay.js';
 import { MediatypeFactory } from './imageVideoFactory.js';
 import { mediaFilter } from './mediaFilter.js';
@@ -24,9 +24,18 @@ export function createPhotographerCard(photographers) {
                     </article>`;
 	}).join('');
 	header.innerHTML = headerContent;
+	header.insertAdjacentHTML('beforebegin', topLink);
 	const app = document.querySelector('#app');
 	app.innerHTML = photographerCard;
 	filterData(photographers);
+}
+
+/////**TOP LINK *///////
+const linkTop = document.querySelector('.top-Link');
+if (linkTop !== null) {
+	linkTop.addEventListener('click', (e) => {
+		e.preventDefault();
+	});
 }
 
 
@@ -222,6 +231,19 @@ export function likeMedia() {
 				oldValue[i].innerText = newValue;
 				likeCounter.innerHTML = updatedSumOfLike();
 			}                        
+		});
+	}
+}
+
+export function likeMediaV2() {
+	const likeButton = document.querySelectorAll('#likeButton');
+	const likeCounter = document.querySelector('#likeCounter');
+	for (let i = 0; i < likeButton.length; i++) {
+		likeButton[i].addEventListener('click', function () {
+			const value = document.querySelectorAll('#likeNumber');
+			const newValue = parseFloat(value[i].innerText) + 1;
+			value[i].innerText = newValue;
+			likeCounter.innerHTML = updatedSumOfLike();
 		});
 	}
 }

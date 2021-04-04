@@ -6,6 +6,12 @@
     box-sizing: inherit;
 }
 
+* {
+    &:focus {
+            outline: 2px solid $text-color-primary;
+        } 
+}
+
 html {
     font-size: 62.5%; //pour definir la valeur de 1rem : on veut 1rem = 10px, soit 10px / 16px = 62.5 (16px est la taille par default sur les navigateur)
 }
